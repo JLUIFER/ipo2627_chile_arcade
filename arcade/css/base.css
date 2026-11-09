@@ -1,0 +1,46 @@
+/* Tokens y estilos base.
+   Cromático: COMPLEMENTARIO azul índigo (fondo) / naranja (acento de acción).
+   Tipográfico: DOS fuentes contrastadas, Chakra Petch (display) + Source Sans 3 (texto).
+   Espacial: escala modular en rem (base 0.5rem). */
+:root {
+  --color-space: #0d0f2b;
+  --color-surface: #1b1f5c;
+  --color-surface-raised: #272c7a;
+  --color-text: #eef0ff;
+  --color-muted: #a7abd6;
+  --color-signal: #ff8a3d;
+  --color-signal-strong: #ffa466;
+
+  --font-display: "Chakra Petch", "Trebuchet MS", sans-serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.5rem;
+  --text-xl: 2.5rem;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --radius: 0.5rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--color-space);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: 1.5;
+}
+
+h1, h2, dt { font-family: var(--font-display); margin: 0; }
+
+:focus-visible { outline: 3px solid var(--color-signal); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

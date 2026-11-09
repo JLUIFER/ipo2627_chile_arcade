@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Órbita 7 · Matamarcianos</title>
+  <meta name="description" content="Matamarcianos en Canvas API con HTML, CSS y JS nativos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <h1 class="site-header__title">Órbita 7</h1>
+    <p class="site-header__tagline">Defiende el sector antes de que la flota llegue al suelo.</p>
+  </header>
+
+  <main class="game">
+    <!-- PANEL IZQUIERDO: Marcador (Puntos, Vidas, Oleada) -->
+    <aside class="game__panel game__panel--left" aria-label="Panel de estado">
+      <section class="hud" aria-label="Marcador" aria-live="polite">
+        <dl class="hud__list">
+          <div class="hud__item">
+            <dt>Puntos</dt>
+            <dd id="hud-score" class="hud__value">0</dd>
+          </div>
+          <div class="hud__item">
+            <dt>Vidas</dt>
+            <dd id="hud-lives" class="hud__value">3</dd>
+          </div>
+          <div class="hud__item">
+            <dt>Oleada</dt>
+            <dd id="hud-level" class="hud__value">1</dd>
+          </div>
+        </dl>
+      </section>
+    </aside>
+
+    <!-- ZONA CENTRAL: Tablero de Juego (Canvas) -->
+    <section class="game__stage" aria-label="Zona de juego">
+      <canvas id="game-canvas" class="stage__canvas" width="480" height="640" role="img"
+        aria-label="Pantalla del juego"></canvas>
+    </section>
+
+    <!-- PANEL DERECHO: Acciones y Ajustes -->
+    <aside class="game__panel game__panel--right" aria-label="Panel de opciones">
+      <section class="controls" aria-label="Acciones">
+        <button id="btn-start" class="btn btn--primary" type="button">Empezar</button>
+        <button id="btn-pause" class="btn" type="button" disabled>Pausar</button>
+        <button id="btn-end" class="btn" type="button" disabled>Terminar</button>
+        <button id="btn-help" class="btn btn--ghost" type="button">Ayuda</button>
+      </section>
+
+      <section class="settings" aria-label="Ajustes">
+        <label class="settings__label" for="select-difficulty">Dificultad</label>
+        <select id="select-difficulty" class="settings__select">
+          <option value="easy">Fácil</option>
+          <option value="normal" selected>Normal</option>
+          <option value="hard">Difícil</option>
+        </select>
+      </section>
+    </aside>
+  </main>
+
+  <dialog id="help-dialog" class="dialog" aria-labelledby="help-title">
+    <h2 id="help-title" class="dialog__title">Cómo se juega</h2>
+    <ul class="dialog__list">
+      <li>Mueve la nave con las flechas ← → o con A / D.</li>
+      <li>Dispara con la barra espaciadora.</li>
+      <li>Cada alienígena abatido suma 10 puntos.</li>
+      <li>Si la flota toca tu nave o llega al suelo, pierdes una vida.</li>
+      <li>Limpia la oleada para pasar a la siguiente: será más rápida.</li>
+      <li>Pausa con P.</li>
+    </ul>
+    <form method="dialog"><button class="btn btn--primary">Entendido</button></form>
+  </dialog>
+
+  <footer class="site-footer"><small>Proyecto Arcade · Canvas API</small></footer>
+</body>
+
+</html>
